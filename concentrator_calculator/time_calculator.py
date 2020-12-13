@@ -18,7 +18,9 @@ def calculate_time(data, concentrator, liquid, temperature, st_vol, des_vol):
     p = np.poly1d(z)
 
     ## return difference only if desired volume != 0
-    if des_vol != 0:
+    if st_vol == 0 and des_vol == 0:
+        return ''
+    elif des_vol != 0:
         return str(timedelta(seconds = int(p(st_vol) - p(des_vol))))
     else:
         return str(timedelta(seconds = int(p(st_vol))))

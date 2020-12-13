@@ -32,8 +32,8 @@ def main():
     [sg.Radio('{} °C'.format(temp), 'TEMP', key = '{}'.format(temp)) for temp in temps]],
     title = 'Select a temperature')],
     [sg.Frame(layout = [
-    [sg.Text('Starting volume:'), sg.Spin([i for i in range(1, 501)], size = (4, 1), key = 'STARTING_VOL')],
-    [sg.Text('Desired volume:'), sg.Spin([i for i in range(1, 501)], size = (4, 1), key = 'DESIRED_VOL')],
+    [sg.Text('Starting volume:'), sg.Spin([i for i in range(501)], size = (4, 1), key = 'STARTING_VOL')],
+    [sg.Text('Desired volume:'), sg.Spin([i for i in range(501)], size = (4, 1), key = 'DESIRED_VOL')],
     [sg.Text('', size = (20, 1), key = 'OUTPUT')]],
     title = 'Volume information')]
     ]
@@ -49,8 +49,7 @@ def main():
 
         ## update the output element
         ## seems there is no better way to get the keys than looping through them
-        func_params = [key for key in values.keys() if values[key]]
-
+        func_params = [key for key in values.keys() if values[key] or type(values[key]) == int]
         ## if all parameters are selected show output
         ## and a valid input volume is selected
         ## will be updated if more volume data is available
@@ -58,8 +57,7 @@ def main():
             if len(func_params) == 5:
                 window.Element('OUTPUT').Update('Estimated time: {}'.format(calculate_time(data, func_params[0], func_params[1], func_params[2], values['STARTING_VOL'], values['DESIRED_VOL'])))
         except np.core._exceptions.UFuncTypeError:
-            if len(func_params) == 5:
-                window.Element('OUTPUT').Update('Select a valid volume.')
+            window.Element('OUTPUT').Update('Select a valid volume.')
 
     window.close()
 
