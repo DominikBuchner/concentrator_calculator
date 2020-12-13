@@ -7,4 +7,5 @@
 
 ## How to start
 Open terminal and type:
+
 `concentrator_calculator`
