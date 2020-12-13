@@ -14,8 +14,10 @@ setuptools.setup(
     url="https://github.com/DominikBuchner/concentrator_calculator",
     packages=setuptools.find_packages(),
     license = 'MIT',
-    install_requires = ['PySimpleGUI >= 4.18.2',
-                        ],
+    install_requires = ['PySimpleGUI >= 4.19.0',
+                        'numpy >= 1.18.4',
+                        'pandas >= 1.0.4',
+                        'scipy >= 1.4.1'],
     include_package_data = True,
     classifiers=[
         "Programming Language :: Python :: 3",
