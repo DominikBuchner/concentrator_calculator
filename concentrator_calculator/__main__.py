@@ -9,7 +9,7 @@ data = pkg_resources.resource_filename(__name__, 'data/centrifuge_data.xlsx')
 ## main function to start the GUI
 def main():
     ## collect data needed for gui computation
-    gui_data = pd.read_excel(data)
+    gui_data = pd.read_excel(data, engine = 'openpyxl')
 
     ## collect concentrator names
     infile = pd.ExcelFile(data)
