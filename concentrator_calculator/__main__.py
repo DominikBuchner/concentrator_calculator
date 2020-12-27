@@ -12,7 +12,7 @@ def main():
     gui_data = pd.read_excel(data, engine = 'openpyxl')
 
     ## collect concentrator names
-    infile = pd.ExcelFile(data)
+    infile = pd.ExcelFile(data, engine = 'openpyxl')
     concentrator_types = infile.sheet_names
     infile.close()
 
