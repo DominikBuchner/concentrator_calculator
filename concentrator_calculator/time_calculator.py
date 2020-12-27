@@ -8,7 +8,7 @@ from datetime import timedelta
 ## function to calculate concentrator runtime from time data
 def calculate_time(data, concentrator, liquid, temperature, st_vol, des_vol):
     ## import the data
-    data = pd.read_excel(data, sheet_name = concentrator, engine = 'openpyxl)
+    data = pd.read_excel(data, sheet_name = concentrator, engine = 'openpyxl')
 
     ## filter data to selected subset of liquid / temperature combination
     data = data.loc[(data['Temperature [°C]'] == int(temperature)) & (data['Liquid'] == liquid)]

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="concentrator-calculator",
-    version="1.0.2",
+    version="1.0.3",
     author="Dominik Buchner",
     author_email="dominik.buchner524@googlemail.com",
     description="Tool to calculate vacuum centrifuge times",
